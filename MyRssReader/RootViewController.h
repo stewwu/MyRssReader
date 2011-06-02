@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MWFeedParser/MWFeedParser.h"
 
 @interface RootViewController : UITableViewController {
+  MWFeedParser *feedParser;
+  NSMutableArray *parsedItems;
 
+  NSDateFormatter *formatter;
+  UIActivityIndicatorView *activityIndicator;
+  NSArray *items;
 }
 
+@property (nonatomic, retain) NSArray *items;
 
 @end

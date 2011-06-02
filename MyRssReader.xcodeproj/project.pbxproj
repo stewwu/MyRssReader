@@ -22,6 +22,13 @@
 		223BA47D13973BAC00BAE2A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 223BA47B13973BAC00BAE2A9 /* InfoPlist.strings */; };
 		223BA48013973BAC00BAE2A9 /* MyRssReaderTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 223BA47F13973BAC00BAE2A9 /* MyRssReaderTests.h */; };
 		223BA48213973BAC00BAE2A9 /* MyRssReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA48113973BAC00BAE2A9 /* MyRssReaderTests.m */; };
+		223BA4BC13976B2F00BAE2A9 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4B513976B2F00BAE2A9 /* GTMNSString+HTML.m */; };
+		223BA4BD13976B2F00BAE2A9 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4B713976B2F00BAE2A9 /* NSDate+InternetDateTime.m */; };
+		223BA4BE13976B2F00BAE2A9 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4B913976B2F00BAE2A9 /* NSString+HTML.m */; };
+		223BA4BF13976B2F00BAE2A9 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4BB13976B2F00BAE2A9 /* NSString+XMLEntities.m */; };
+		223BA4C813976B3C00BAE2A9 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C213976B3C00BAE2A9 /* MWFeedInfo.m */; };
+		223BA4C913976B3C00BAE2A9 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C413976B3C00BAE2A9 /* MWFeedItem.m */; };
+		223BA4CA13976B3C00BAE2A9 /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,22 +46,38 @@
 		223BA45213973BAB00BAE2A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		223BA45413973BAB00BAE2A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		223BA45613973BAB00BAE2A9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		223BA45A13973BAB00BAE2A9 /* MyRssReader-Info.plist */ = {isa = PBXFileReference; path = "MyRssReader-Info.plist"; sourceTree = "<group>"; };
+		223BA45A13973BAB00BAE2A9 /* MyRssReader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyRssReader-Info.plist"; sourceTree = "<group>"; };
 		223BA45C13973BAB00BAE2A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		223BA45E13973BAB00BAE2A9 /* MyRssReader-Prefix.pch */ = {isa = PBXFileReference; path = "MyRssReader-Prefix.pch"; sourceTree = "<group>"; };
+		223BA45E13973BAB00BAE2A9 /* MyRssReader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyRssReader-Prefix.pch"; sourceTree = "<group>"; };
 		223BA45F13973BAB00BAE2A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		223BA46113973BAB00BAE2A9 /* MyRssReaderAppDelegate.h */ = {isa = PBXFileReference; path = MyRssReaderAppDelegate.h; sourceTree = "<group>"; };
+		223BA46113973BAB00BAE2A9 /* MyRssReaderAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRssReaderAppDelegate.h; sourceTree = "<group>"; };
 		223BA46213973BAC00BAE2A9 /* MyRssReaderAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRssReaderAppDelegate.m; sourceTree = "<group>"; };
 		223BA46513973BAC00BAE2A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		223BA46713973BAC00BAE2A9 /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		223BA46713973BAC00BAE2A9 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		223BA46813973BAC00BAE2A9 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		223BA46B13973BAC00BAE2A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		223BA47213973BAC00BAE2A9 /* MyRssReaderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRssReaderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		223BA47A13973BAC00BAE2A9 /* MyRssReaderTests-Info.plist */ = {isa = PBXFileReference; path = "MyRssReaderTests-Info.plist"; sourceTree = "<group>"; };
+		223BA47A13973BAC00BAE2A9 /* MyRssReaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyRssReaderTests-Info.plist"; sourceTree = "<group>"; };
 		223BA47C13973BAC00BAE2A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		223BA47E13973BAC00BAE2A9 /* MyRssReaderTests-Prefix.pch */ = {isa = PBXFileReference; path = "MyRssReaderTests-Prefix.pch"; sourceTree = "<group>"; };
+		223BA47E13973BAC00BAE2A9 /* MyRssReaderTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyRssReaderTests-Prefix.pch"; sourceTree = "<group>"; };
 		223BA47F13973BAC00BAE2A9 /* MyRssReaderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRssReaderTests.h; sourceTree = "<group>"; };
 		223BA48113973BAC00BAE2A9 /* MyRssReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRssReaderTests.m; sourceTree = "<group>"; };
+		223BA4B313976B2F00BAE2A9 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		223BA4B413976B2F00BAE2A9 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		223BA4B513976B2F00BAE2A9 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		223BA4B613976B2F00BAE2A9 /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
+		223BA4B713976B2F00BAE2A9 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
+		223BA4B813976B2F00BAE2A9 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		223BA4B913976B2F00BAE2A9 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		223BA4BA13976B2F00BAE2A9 /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLEntities.h"; sourceTree = "<group>"; };
+		223BA4BB13976B2F00BAE2A9 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
+		223BA4C113976B3C00BAE2A9 /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedInfo.h; sourceTree = "<group>"; };
+		223BA4C213976B3C00BAE2A9 /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedInfo.m; sourceTree = "<group>"; };
+		223BA4C313976B3C00BAE2A9 /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedItem.h; sourceTree = "<group>"; };
+		223BA4C413976B3C00BAE2A9 /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedItem.m; sourceTree = "<group>"; };
+		223BA4C513976B3C00BAE2A9 /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
+		223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
+		223BA4C713976B3C00BAE2A9 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +136,8 @@
 		223BA45813973BAB00BAE2A9 /* MyRssReader */ = {
 			isa = PBXGroup;
 			children = (
+				223BA4C013976B3C00BAE2A9 /* MWFeedParser */,
+				223BA4B213976B2F00BAE2A9 /* Categories */,
 				223BA46113973BAB00BAE2A9 /* MyRssReaderAppDelegate.h */,
 				223BA46213973BAC00BAE2A9 /* MyRssReaderAppDelegate.m */,
 				223BA46413973BAC00BAE2A9 /* MainWindow.xib */,
@@ -153,6 +178,36 @@
 				223BA47E13973BAC00BAE2A9 /* MyRssReaderTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		223BA4B213976B2F00BAE2A9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				223BA4B313976B2F00BAE2A9 /* GTMDefines.h */,
+				223BA4B413976B2F00BAE2A9 /* GTMNSString+HTML.h */,
+				223BA4B513976B2F00BAE2A9 /* GTMNSString+HTML.m */,
+				223BA4B613976B2F00BAE2A9 /* NSDate+InternetDateTime.h */,
+				223BA4B713976B2F00BAE2A9 /* NSDate+InternetDateTime.m */,
+				223BA4B813976B2F00BAE2A9 /* NSString+HTML.h */,
+				223BA4B913976B2F00BAE2A9 /* NSString+HTML.m */,
+				223BA4BA13976B2F00BAE2A9 /* NSString+XMLEntities.h */,
+				223BA4BB13976B2F00BAE2A9 /* NSString+XMLEntities.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		223BA4C013976B3C00BAE2A9 /* MWFeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				223BA4C113976B3C00BAE2A9 /* MWFeedInfo.h */,
+				223BA4C213976B3C00BAE2A9 /* MWFeedInfo.m */,
+				223BA4C313976B3C00BAE2A9 /* MWFeedItem.h */,
+				223BA4C413976B3C00BAE2A9 /* MWFeedItem.m */,
+				223BA4C513976B3C00BAE2A9 /* MWFeedParser.h */,
+				223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */,
+				223BA4C713976B3C00BAE2A9 /* MWFeedParser_Private.h */,
+			);
+			path = MWFeedParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +318,13 @@
 				223BA46013973BAB00BAE2A9 /* main.m in Sources */,
 				223BA46313973BAC00BAE2A9 /* MyRssReaderAppDelegate.m in Sources */,
 				223BA46913973BAC00BAE2A9 /* RootViewController.m in Sources */,
+				223BA4BC13976B2F00BAE2A9 /* GTMNSString+HTML.m in Sources */,
+				223BA4BD13976B2F00BAE2A9 /* NSDate+InternetDateTime.m in Sources */,
+				223BA4BE13976B2F00BAE2A9 /* NSString+HTML.m in Sources */,
+				223BA4BF13976B2F00BAE2A9 /* NSString+XMLEntities.m in Sources */,
+				223BA4C813976B3C00BAE2A9 /* MWFeedInfo.m in Sources */,
+				223BA4C913976B3C00BAE2A9 /* MWFeedItem.m in Sources */,
+				223BA4CA13976B3C00BAE2A9 /* MWFeedParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
