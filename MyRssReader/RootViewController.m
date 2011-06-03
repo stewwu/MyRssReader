@@ -10,6 +10,7 @@
 
 @implementation RootViewController
 
+@synthesize feedLink;
 @synthesize items;
 
 - (void)viewDidLoad
@@ -30,7 +31,9 @@
   
   parsedItems = [[NSMutableArray alloc] init];
   
-  NSURL *feedURL = [NSURL URLWithString:@"http://feeds.feedburner.com/inside-blog-taiwan"];
+  if (!feedLink)
+    self.feedLink = @"http://feeds.feedburner.com/inside-blog-taiwan";
+  NSURL *feedURL = [NSURL URLWithString:feedLink];
 	feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
 	feedParser.delegate = (id)self;
 	feedParser.feedParseType = ParseTypeFull; // Parse feed info and all items

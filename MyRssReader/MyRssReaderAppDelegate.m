@@ -7,21 +7,27 @@
 //
 
 #import "MyRssReaderAppDelegate.h"
+#import "RootViewController.h"
 
 @implementation MyRssReaderAppDelegate
 
 
 @synthesize window=_window;
 
-@synthesize navigationController=_navigationController;
+@synthesize tabBarController=_tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    // Add the navigation controller's view to the window and display.
-    self.window.rootViewController = self.navigationController;
-    [self.window makeKeyAndVisible];
-    return YES;
+  // Override point for customization after application launch.
+  // Add the navigation controller's view to the window and display.
+  UINavigationController *firstController = [_tabBarController.viewControllers objectAtIndex:0];
+  UINavigationController *secondController = [_tabBarController.viewControllers objectAtIndex:1];
+  ((RootViewController *) firstController.topViewController).feedLink = @"http://feeds.feedburner.com/inside-blog-taiwan";
+  ((RootViewController *) secondController.topViewController).feedLink = @"http://forum.inside.com.tw/rss.php?auth=0";
+  
+  self.window.rootViewController = self.tabBarController;
+  [self.window makeKeyAndVisible];
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -66,7 +72,7 @@
 - (void)dealloc
 {
     [_window release];
-    [_navigationController release];
+    [_tabBarController release];
     [super dealloc];
 }
 

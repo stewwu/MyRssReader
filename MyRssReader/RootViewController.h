@@ -10,6 +10,8 @@
 #import "MWFeedParser/MWFeedParser.h"
 
 @interface RootViewController : UITableViewController {
+  NSString *feedLink;
+  
   MWFeedParser *feedParser;
   NSMutableArray *parsedItems;
 
@@ -18,6 +20,7 @@
   NSArray *items;
 }
 
+@property (nonatomic, copy) NSString *feedLink;
 @property (nonatomic, retain) NSArray *items;
 
 @end
