@@ -22,7 +22,7 @@
   // Add the navigation controller's view to the window and display.
   UINavigationController *firstController = [_tabBarController.viewControllers objectAtIndex:0];
   UINavigationController *secondController = [_tabBarController.viewControllers objectAtIndex:1];
-  ((RootViewController *) firstController.topViewController).feedLink = @"http://feeds.feedburner.com/inside-blog-taiwan";
+  ((RootViewController *) firstController.topViewController).feedLink = @"http://news.ebc.net.tw/rss/";
   ((RootViewController *) secondController.topViewController).feedLink = @"http://forum.inside.com.tw/rss.php?auth=0";
   
   self.window.rootViewController = self.tabBarController;

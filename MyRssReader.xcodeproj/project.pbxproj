@@ -29,6 +29,7 @@
 		223BA4C813976B3C00BAE2A9 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C213976B3C00BAE2A9 /* MWFeedInfo.m */; };
 		223BA4C913976B3C00BAE2A9 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C413976B3C00BAE2A9 /* MWFeedItem.m */; };
 		223BA4CA13976B3C00BAE2A9 /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */; };
+		22FE2A001398C33500304A23 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FE29FF1398C33500304A23 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		223BA4C513976B3C00BAE2A9 /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
 		223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
 		223BA4C713976B3C00BAE2A9 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
+		22FE29FE1398C33500304A23 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		22FE29FF1398C33500304A23 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				223BA46713973BAC00BAE2A9 /* RootViewController.h */,
 				223BA46813973BAC00BAE2A9 /* RootViewController.m */,
 				223BA46A13973BAC00BAE2A9 /* RootViewController.xib */,
+				22FE29FE1398C33500304A23 /* DetailViewController.h */,
+				22FE29FF1398C33500304A23 /* DetailViewController.m */,
 				223BA45913973BAB00BAE2A9 /* Supporting Files */,
 			);
 			path = MyRssReader;
@@ -325,6 +330,7 @@
 				223BA4C813976B3C00BAE2A9 /* MWFeedInfo.m in Sources */,
 				223BA4C913976B3C00BAE2A9 /* MWFeedItem.m in Sources */,
 				223BA4CA13976B3C00BAE2A9 /* MWFeedParser.m in Sources */,
+				22FE2A001398C33500304A23 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +511,7 @@
 				223BA48713973BAC00BAE2A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		223BA48813973BAC00BAE2A9 /* Build configuration list for PBXNativeTarget "MyRssReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +520,7 @@
 				223BA48A13973BAC00BAE2A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

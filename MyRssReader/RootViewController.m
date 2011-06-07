@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "DetailViewController.h"
 
 @implementation RootViewController
 
@@ -196,16 +197,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UIViewController *detailViewController = [[UIViewController alloc] init];
-  UIWebView *webView = [[UIWebView alloc] init];
   MWFeedItem *item = [items objectAtIndex:indexPath.row];
-  
-  detailViewController.title = item.title;
-  detailViewController.view = webView;
-  webView.scalesPageToFit = YES;
-  [webView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:item.link]]];
-  [webView release];
-  
+  DetailViewController *detailViewController = [[DetailViewController alloc] initWithItem:item];
   [self.navigationController pushViewController:detailViewController animated:YES];
   [detailViewController release];
 }
