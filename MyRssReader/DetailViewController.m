@@ -11,121 +11,88 @@
 
 @implementation DetailViewController
 
-@synthesize item;
+@synthesize item=_item;
 
 /*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNavigatorURL:(NSURL*)URL query:(NSDictionary*)query
 {
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  self = [super init];
   if (self) {
-      // Custom initialization
+    self.item = [query objectForKey:@"item"];
   }
   return self;
 }
-*/
-- (id)initWithItem:(MWFeedItem *)aItem
+ */
+
+- (id)initWithFeedDigest:(NSString *)feedDigest item:(NSInteger)theItem
 {
-  self = [super initWithNibName:nil bundle:nil];
+  self = [super init];
   if (self) {
-    self.item = aItem;
+    TTNavigator *nagivator = [TTNavigator navigator];
+    TTURLMap *map = nagivator.URLMap;
+  
+    NSString *url = [NSString stringWithFormat:@"tt://objects/%@/%d", feedDigest, theItem];
+    self.item = [map objectForURL:url];
+    
+    _formatter = [[NSDateFormatter alloc] init];
+    [_formatter setDateStyle:NSDateFormatterMediumStyle];
+    [_formatter setTimeStyle:NSDateFormatterNoStyle];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  [item release];
+  [_formatter release];
+  [_item release];
   [super dealloc];
 }
 
-- (void)didReceiveMemoryWarning
-{
-  // Releases the view if it doesn't have a superview.
-  [super didReceiveMemoryWarning];
-  
-  // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
 - (void)buttonClick
 {
-   UIViewController *detailViewController = [[UIViewController alloc] init];
-   UIWebView *webView = [[UIWebView alloc] init];
-   
-   detailViewController.title = item.title;
-   detailViewController.view = webView;
-   webView.scalesPageToFit = YES;
-   [webView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:item.link]]];
-   [webView release];
-   
-   [self.navigationController pushViewController:detailViewController animated:YES];
-   [detailViewController release];
+  TTOpenURL(_item.link);
 }
+
+#pragma -
+#pragma mark - View lifecycle
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView
 {
   [super loadView];
-  //self.view.autoresizesSubviews = YES;
+  
+  NSString *title = _item.title ? [_item.title stringByConvertingHTMLToPlainText] : @"[No Title]";
+  NSString *date = [_formatter stringFromDate:_item.date];
+  NSString *summary = _item.summary ? [_item.summary stringByConvertingHTMLToPlainText] : @"[No Summary]";
 
-  NSString *itemTitle = item.title ? [item.title stringByConvertingHTMLToPlainText] : @"[No Title]";
-  NSString *itemSummary = item.summary ? [item.summary stringByConvertingHTMLToPlainText] : @"[No Summary]";
+  UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  titleButton.frame = CGRectMake(10, 10, 300, 30);
+  //titleButton.adjustsFontSizeToFitWidth = YES;
+  titleButton.backgroundColor = [UIColor clearColor];
+  [titleButton setTitle:title forState:UIControlStateNormal];
+  [titleButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:titleButton];
   
-  UIButton *title = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  title.frame = CGRectMake(10, 10, 300, 30);
-  //title.adjustsFontSizeToFitWidth = YES;
-  title.backgroundColor = [UIColor clearColor];
-  [title setTitle:itemTitle forState:UIControlStateNormal];
-  [title addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:title];
-  
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateStyle:NSDateFormatterMediumStyle];
-	[formatter setTimeStyle:NSDateFormatterNoStyle];
-  
-  UILabel *date = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 300, 20)];
-  //title.adjustsFontSizeToFitWidth = YES;
-  date.text = [formatter stringFromDate:item.date];;
-  date.textColor = [UIColor grayColor];
-  [self.view addSubview:date];
-  [date release];
+  UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 300, 20)];
+  dateLabel.text = [_formatter stringFromDate:date];;
+  dateLabel.textColor = [UIColor grayColor];
+  [self.view addSubview:dateLabel];
+  [dateLabel release];
 
   /*
   UIWebView *summary = [[UIWebView alloc] initWithFrame:CGRectMake(10, 70, 300, 100)];
   //summary.adjustsFontSizeToFitWidth = YES;
   [summary loadHTMLString:itemSummary baseURL:nil];
-  [self.view addSubview:summary];
+  [self.view addSubview:_item.summary];
   [summary release];
    */
-  UITextView *summary = [[UITextView alloc] initWithFrame:CGRectMake(10, 70, 300, 400)];
-  //summary.adjustsFontSizeToFitWidth = YES;
-  summary.text = itemSummary;
-  //summary.editable = NO;
-  summary.dataDetectorTypes = UIDataDetectorTypeAll;
-  [self.view addSubview:summary];
-  [summary release];
-}
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-  [super viewDidLoad];
-}
-*/
-
-- (void)viewDidUnload
-{
-  [super viewDidUnload];
-  // Release any retained subviews of the main view.
-  // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-  // Return YES for supported orientations
-  return (interfaceOrientation == UIInterfaceOrientationPortrait);
+  UITextView *summaryView = [[UITextView alloc] initWithFrame:CGRectMake(10, 70, 300, 300)];
+  //summaryView.adjustsFontSizeToFitWidth = YES;
+  summaryView.text = summary;
+  //summaryView.editable = NO;
+  summaryView.dataDetectorTypes = UIDataDetectorTypeAll;
+  [self.view addSubview:summaryView];
+  [summaryView release];
 }
 
 @end

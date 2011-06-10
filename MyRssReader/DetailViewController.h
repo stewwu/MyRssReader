@@ -10,12 +10,14 @@
 #import "MWFeedParser.h"
 
 
-@interface DetailViewController : UIViewController {
-  MWFeedItem *item;
+@interface DetailViewController : TTViewController {
+  MWFeedItem *_item;
+  
+  NSDateFormatter *_formatter;
 }
 
 @property (nonatomic, retain) MWFeedItem *item;
 
-- (id)initWithItem:(MWFeedItem *)aItem;
+- (id)initWithFeedDigest:(NSString *)feedDigest item:(NSInteger)theItem;
 
 @end

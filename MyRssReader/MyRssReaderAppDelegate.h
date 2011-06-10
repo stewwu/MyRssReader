@@ -8,12 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyRssReaderAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
-
+@interface MyRssReaderAppDelegate : NSObject <UIApplicationDelegate> {
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
 @end

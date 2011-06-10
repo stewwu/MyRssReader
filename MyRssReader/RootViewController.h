@@ -7,20 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MWFeedParser/MWFeedParser.h"
 
-@interface RootViewController : UITableViewController {
-  NSString *feedLink;
-  
-  MWFeedParser *feedParser;
-  NSMutableArray *parsedItems;
-
-  NSDateFormatter *formatter;
-  UIActivityIndicatorView *activityIndicator;
-  NSArray *items;
+@interface RootViewController : TTTableViewController {
 }
 
-@property (nonatomic, copy) NSString *feedLink;
-@property (nonatomic, retain) NSArray *items;
+- (id)initWithType:(NSInteger)type;
 
 @end
