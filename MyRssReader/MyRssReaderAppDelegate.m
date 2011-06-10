@@ -27,8 +27,8 @@
   
   TTURLMap* map = navigator.URLMap;
   [map from:@"*" toViewController:[TTWebController class]];
-  [map from:@"tt://tabs" toViewController:[TabBarController class]];
-  [map from:@"tt://feeds/(initWithType:)" toViewController:[RootViewController class]];
+  [map from:@"tt://tabs" toSharedViewController:[TabBarController class]];
+  [map from:@"tt://feeds/(initWithType:)" toSharedViewController:[RootViewController class]];
   [map from:@"tt://summary/(initWithFeedDigest:)/(item:)" toViewController:[DetailViewController class]];
   
   if (! [navigator restoreViewControllers]) {
