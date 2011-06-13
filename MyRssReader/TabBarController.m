@@ -17,6 +17,7 @@
   [self setTabURLs:[NSArray arrayWithObjects:
                       @"tt://feeds/1",
                       @"tt://feeds/2",
+                      @"tt://feeds/3",
                       nil]];
 }
 
