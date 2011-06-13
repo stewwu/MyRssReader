@@ -15,7 +15,6 @@
 		223BA46313973BAC00BAE2A9 /* MyRssReaderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA46213973BAC00BAE2A9 /* MyRssReaderAppDelegate.m */; };
 		223BA46613973BAC00BAE2A9 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223BA46413973BAC00BAE2A9 /* MainWindow.xib */; };
 		223BA46913973BAC00BAE2A9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA46813973BAC00BAE2A9 /* RootViewController.m */; };
-		223BA46C13973BAC00BAE2A9 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223BA46A13973BAC00BAE2A9 /* RootViewController.xib */; };
 		223BA47313973BAC00BAE2A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BA45213973BAB00BAE2A9 /* UIKit.framework */; };
 		223BA47413973BAC00BAE2A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BA45413973BAB00BAE2A9 /* Foundation.framework */; };
 		223BA47513973BAC00BAE2A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BA45613973BAB00BAE2A9 /* CoreGraphics.framework */; };
@@ -30,6 +29,7 @@
 		223BA4C913976B3C00BAE2A9 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C413976B3C00BAE2A9 /* MWFeedItem.m */; };
 		223BA4CA13976B3C00BAE2A9 /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */; };
 		22476A2A139E2B4E00010A1B /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22476A29139E2B4E00010A1B /* TabBarController.m */; };
+		228695CD13A2203400C4E0F7 /* MyTableSubtitleItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 228695CC13A2203400C4E0F7 /* MyTableSubtitleItemCell.m */; };
 		22F73C9213A0A68800CA8B3B /* FeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F73C9113A0A68700CA8B3B /* FeedDataSource.m */; };
 		22FE2A001398C33500304A23 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FE29FF1398C33500304A23 /* DetailViewController.m */; };
 		3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3201088596B4756681693704 /* libThree20UICommon.a */; };
@@ -214,7 +214,6 @@
 		223BA46513973BAC00BAE2A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		223BA46713973BAC00BAE2A9 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		223BA46813973BAC00BAE2A9 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		223BA46B13973BAC00BAE2A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		223BA47213973BAC00BAE2A9 /* MyRssReaderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRssReaderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		223BA47A13973BAC00BAE2A9 /* MyRssReaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyRssReaderTests-Info.plist"; sourceTree = "<group>"; };
 		223BA47C13973BAC00BAE2A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -232,15 +231,17 @@
 		223BA4BB13976B2F00BAE2A9 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
 		223BA4C113976B3C00BAE2A9 /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedInfo.h; sourceTree = "<group>"; };
 		223BA4C213976B3C00BAE2A9 /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedInfo.m; sourceTree = "<group>"; };
-		223BA4C313976B3C00BAE2A9 /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedItem.h; sourceTree = "<group>"; };
-		223BA4C413976B3C00BAE2A9 /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedItem.m; sourceTree = "<group>"; };
+		223BA4C313976B3C00BAE2A9 /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MWFeedItem.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		223BA4C413976B3C00BAE2A9 /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MWFeedItem.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		223BA4C513976B3C00BAE2A9 /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
-		223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
+		223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MWFeedParser.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		223BA4C713976B3C00BAE2A9 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
 		22476A28139E2B4E00010A1B /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		22476A29139E2B4E00010A1B /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		228695CB13A2203400C4E0F7 /* MyTableSubtitleItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableSubtitleItemCell.h; sourceTree = "<group>"; };
+		228695CC13A2203400C4E0F7 /* MyTableSubtitleItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableSubtitleItemCell.m; sourceTree = "<group>"; };
 		22F73C9013A0A68700CA8B3B /* FeedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDataSource.h; sourceTree = "<group>"; };
-		22F73C9113A0A68700CA8B3B /* FeedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDataSource.m; sourceTree = "<group>"; };
+		22F73C9113A0A68700CA8B3B /* FeedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FeedDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		22FE29FE1398C33500304A23 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		22FE29FF1398C33500304A23 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		3201088596B4756681693700 /* Three20UICommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UICommon.xcodeproj; path = Dependencies/three20/src/Three20UICommon/Three20UICommon.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -335,11 +336,12 @@
 				223BA46413973BAC00BAE2A9 /* MainWindow.xib */,
 				223BA46713973BAC00BAE2A9 /* RootViewController.h */,
 				223BA46813973BAC00BAE2A9 /* RootViewController.m */,
-				223BA46A13973BAC00BAE2A9 /* RootViewController.xib */,
 				22FE29FE1398C33500304A23 /* DetailViewController.h */,
 				22FE29FF1398C33500304A23 /* DetailViewController.m */,
 				22F73C9013A0A68700CA8B3B /* FeedDataSource.h */,
 				22F73C9113A0A68700CA8B3B /* FeedDataSource.m */,
+				228695CB13A2203400C4E0F7 /* MyTableSubtitleItemCell.h */,
+				228695CC13A2203400C4E0F7 /* MyTableSubtitleItemCell.m */,
 				223BA45913973BAB00BAE2A9 /* Supporting Files */,
 			);
 			path = MyRssReader;
@@ -678,7 +680,6 @@
 				320B6C86F11D9990244A9731 /* Three20.bundle in Resources */,
 				223BA45D13973BAB00BAE2A9 /* InfoPlist.strings in Resources */,
 				223BA46613973BAC00BAE2A9 /* MainWindow.xib in Resources */,
-				223BA46C13973BAC00BAE2A9 /* RootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +728,7 @@
 				22FE2A001398C33500304A23 /* DetailViewController.m in Sources */,
 				22476A2A139E2B4E00010A1B /* TabBarController.m in Sources */,
 				22F73C9213A0A68800CA8B3B /* FeedDataSource.m in Sources */,
+				228695CD13A2203400C4E0F7 /* MyTableSubtitleItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,14 +800,6 @@
 				223BA46513973BAC00BAE2A9 /* en */,
 			);
 			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		223BA46A13973BAC00BAE2A9 /* RootViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				223BA46B13973BAC00BAE2A9 /* en */,
-			);
-			name = RootViewController.xib;
 			sourceTree = "<group>";
 		};
 		223BA47B13973BAC00BAE2A9 /* InfoPlist.strings */ = {

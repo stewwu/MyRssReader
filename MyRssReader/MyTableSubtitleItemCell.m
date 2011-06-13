@@ -11,4 +11,28 @@
 
 @implementation MyTableSubtitleItemCell
 
++ (CGFloat)tableView:(UITableView*)tableView rowHeightForObject:(id)object
+{
+  TTTableSubtitleItem* item = object;
+  
+  CGFloat height = TTSTYLEVAR(tableFont).ttLineHeight + kTableCellVPadding*2;
+  if (item.subtitle) {
+    height += TTSTYLEVAR(font).ttLineHeight;
+  }
+  if (item.imageURL) {
+    height = 60;
+  }
+  
+  return height;
+}
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)identifier
+{
+  self = [super initWithStyle:style reuseIdentifier:identifier];
+  if (self) {
+    self.textLabel.adjustsFontSizeToFitWidth = NO;
+  }
+  return self;
+}
+
 @end

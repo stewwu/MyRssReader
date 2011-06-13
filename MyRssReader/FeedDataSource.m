@@ -7,6 +7,7 @@
 //
 
 #import "FeedDataSource.h"
+#import "MyTableSubtitleItemCell.h"
 
 @implementation FeedDataSource
 
@@ -56,7 +57,7 @@
     NSString *summary = item.summary ? [item.summary stringByConvertingHTMLToPlainText] : @"[No Summary]";
     NSString *url = [NSString stringWithFormat:@"tt://summary/%x/%d", [_url hash], n];
     
-    TTTableSubtitleItem *tableItem = [TTTableSubtitleItem itemWithText:title subtitle:date imageURL:nil defaultImage:nil URL:url accessoryURL:nil];
+    TTTableSubtitleItem *tableItem = [TTTableSubtitleItem itemWithText:title subtitle:date imageURL:item.imageUrl defaultImage:nil URL:url accessoryURL:nil];
     [items addObject:tableItem];
 
     NSString *objUrl = [NSString stringWithFormat:@"tt://objects/%x/%d", [_url hash], n];
@@ -66,6 +67,14 @@
   }  
   self.items = items;
   TT_RELEASE_SAFELY(items);
+}
+
+- (Class)tableView:(UITableView *)tableView cellClassForObject:(id)object
+{
+  if ([object isKindOfClass:[TTTableSubtitleItem class]]) {  
+		return [MyTableSubtitleItemCell class];  
+	}
+	return [super tableView:tableView cellClassForObject:object];
 }
 
 #pragma mark -
