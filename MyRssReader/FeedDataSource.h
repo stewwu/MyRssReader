@@ -7,19 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MWFeedParser/MWFeedParser.h"
+
+#import "FeedModel.h"
 
 @interface FeedDataSource : TTListDataSource {
-  NSString* _url;
-  NSMutableArray *_parsedItems;
-
-  MWFeedParser *_feedParser;
-  NSDateFormatter *_formatter;
+  FeedModel *_feedModel;
 }
 
-@property (nonatomic, copy) NSString *url;
-@property (nonatomic, retain) NSMutableArray *parsedItems;
-
-- (id)initWithUrl:(NSString *)theUrl;
+- (id)initWithUrl:(NSString *)url dateFormatter:(NSDateFormatter *)dateFormatter;
 
 @end

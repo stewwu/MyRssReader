@@ -6,42 +6,33 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
+#import "NSString+HTML.h"
+
 #import "FeedDataSource.h"
+#import "FeedItem.h"
 #import "MyTableSubtitleItemCell.h"
+
 
 @implementation FeedDataSource
 
-@synthesize url=_url;
-@synthesize parsedItems=_parsedItems;
-
-- (id)initWithUrl:(NSString *)theUrl
+- (id)initWithUrl:(NSString *)url dateFormatter:(NSDateFormatter *)dateFormatter
 {
   self = [super init];
   if (self) {
-    self.url = theUrl;
-    self.parsedItems = [[NSMutableArray alloc] init];
-    
-    _feedParser = [[MWFeedParser alloc] initWithFeedURL:[NSURL URLWithString:_url]];
-    _feedParser.delegate = (id)self;
-    _feedParser.feedParseType = ParseTypeFull;
-    //_feedParser.connectionType = ConnectionTypeAsynchronously;
-    _feedParser.connectionType = ConnectionTypeSynchronously;
-    [_feedParser parse];
-    
-    _formatter = [[NSDateFormatter alloc] init];
-    [_formatter setDateStyle:NSDateFormatterMediumStyle];
-    [_formatter setTimeStyle:NSDateFormatterNoStyle];
+    _feedModel = [[FeedModel alloc] initWithUrl:url dateFormatter:dateFormatter];
   }
   return self;
 }
 
 - (void)delloc
 {
-  TT_RELEASE_SAFELY(_formatter);
-  TT_RELEASE_SAFELY(_feedParser);
-  TT_RELEASE_SAFELY(_parsedItems);
-  TT_RELEASE_SAFELY(_url);
+  TT_RELEASE_SAFELY(_feedModel);
   [super dealloc];
+}
+
+- (id<TTModel>)model
+{
+  return _feedModel;
 }
 
 - (void)tableViewDidLoadModel:(UITableView *)tableView
@@ -51,22 +42,23 @@
 
   NSMutableArray *items = [[NSMutableArray alloc] init];
   NSInteger n = 0;
-  for (MWFeedItem *item in _parsedItems) {
+  for (FeedItem *item in _feedModel.items) {
     NSString *title = item.title ? [item.title stringByConvertingHTMLToPlainText] : @"[No Title]";
-    NSString *date = [_formatter stringFromDate:item.date];
-    NSString *summary = item.summary ? [item.summary stringByConvertingHTMLToPlainText] : @"[No Summary]";
-    NSString *url = [NSString stringWithFormat:@"tt://summary/%x/%d", [_url hash], n];
-    
-    TTTableSubtitleItem *tableItem = [TTTableSubtitleItem itemWithText:title subtitle:date imageURL:item.imageUrl defaultImage:nil URL:url accessoryURL:nil];
-    [items addObject:tableItem];
+    NSString *date = [item.date formatRelativeTime];
+    /*
+    NSString *desc = item.description ? [item.description stringByConvertingHTMLToPlainText] : @"[No Description]";
+     */
+    NSString *url = [NSString stringWithFormat:@"tt://summary/%x/%d", [_feedModel.url hash], n];
 
-    NSString *objUrl = [NSString stringWithFormat:@"tt://objects/%x/%d", [_url hash], n];
+    TTTableSubtitleItem *cell = [TTTableSubtitleItem itemWithText:title subtitle:date imageURL:item.image defaultImage:nil URL:url accessoryURL:nil];
+    [items addObject:cell];
+
+    NSString *objUrl = [NSString stringWithFormat:@"tt://objects/%x/%d", [_feedModel.url hash], n];
     [map setObject:item forURL:objUrl];
-        
+    
     n++;
-  }  
-  self.items = items;
-  TT_RELEASE_SAFELY(items);
+  }
+  _items = items;
 }
 
 - (Class)tableView:(UITableView *)tableView cellClassForObject:(id)object
@@ -75,37 +67,6 @@
 		return [MyTableSubtitleItemCell class];  
 	}
 	return [super tableView:tableView cellClassForObject:object];
-}
-
-#pragma mark -
-#pragma mark MWFeedParserDelegate
-
-- (void)feedParserDidStart:(MWFeedParser *)parser
-{
-	NSLog(@"Started Parsing: %@", parser.url);
-}
-
-- (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info
-{
-	NSLog(@"Parsed Feed Info: “%@”", info.title);
-}
-
-- (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item
-{
-	NSLog(@"Parsed Feed Item: “%@”", item.title);
-	if (item)
-    [_parsedItems addObject:item];	
-}
-
-- (void)feedParserDidFinish:(MWFeedParser *)parser
-{
-  NSLog(@"Finished Parsing %@", (parser.stopped ? @" (Stopped)" : @""));
-}
-
-- (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error
-{
-	NSLog(@"Finished Parsing With Error: %@", error);
-	[_parsedItems removeAllObjects];
 }
 
 @end

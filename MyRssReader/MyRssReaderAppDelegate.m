@@ -21,6 +21,8 @@
   // Override point for customization after application launch.
   // Add the navigation controller's view to the window and display.
 
+  [[TTURLRequestQueue mainQueue] setMaxContentLength:0];
+  
   TTNavigator* navigator = [TTNavigator navigator];
   navigator.persistenceMode = TTNavigatorPersistenceModeAll;
   navigator.window = self.window;

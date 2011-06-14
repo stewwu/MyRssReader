@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223316FC13A60A46007AAC2A /* FeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 223316FB13A60A46007AAC2A /* FeedModel.m */; };
 		223BA45313973BAB00BAE2A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BA45213973BAB00BAE2A9 /* UIKit.framework */; };
 		223BA45513973BAB00BAE2A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BA45413973BAB00BAE2A9 /* Foundation.framework */; };
 		223BA45713973BAB00BAE2A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BA45613973BAB00BAE2A9 /* CoreGraphics.framework */; };
@@ -25,14 +26,13 @@
 		223BA4BD13976B2F00BAE2A9 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4B713976B2F00BAE2A9 /* NSDate+InternetDateTime.m */; };
 		223BA4BE13976B2F00BAE2A9 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4B913976B2F00BAE2A9 /* NSString+HTML.m */; };
 		223BA4BF13976B2F00BAE2A9 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4BB13976B2F00BAE2A9 /* NSString+XMLEntities.m */; };
-		223BA4C813976B3C00BAE2A9 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C213976B3C00BAE2A9 /* MWFeedInfo.m */; };
-		223BA4C913976B3C00BAE2A9 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C413976B3C00BAE2A9 /* MWFeedItem.m */; };
-		223BA4CA13976B3C00BAE2A9 /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */; };
 		22476A2A139E2B4E00010A1B /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22476A29139E2B4E00010A1B /* TabBarController.m */; };
 		228695CD13A2203400C4E0F7 /* MyTableSubtitleItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 228695CC13A2203400C4E0F7 /* MyTableSubtitleItemCell.m */; };
+		22C07CCD13A61B980051BDC9 /* FeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C07CCC13A61B980051BDC9 /* FeedItem.m */; };
 		22F73C9213A0A68800CA8B3B /* FeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F73C9113A0A68700CA8B3B /* FeedDataSource.m */; };
 		22FE2A001398C33500304A23 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FE29FF1398C33500304A23 /* DetailViewController.m */; };
 		3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3201088596B4756681693704 /* libThree20UICommon.a */; };
+		3205FA96B41F8AE94E5369E5 /* libextThree20XML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3205FA96B41F8AE94E5369E4 /* libextThree20XML.a */; };
 		320A2827FEC940B25BC42C65 /* libThree20Core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320A2827FEC940B25BC42C64 /* libThree20Core.a */; };
 		320A5A189C235877202780D5 /* libThree20Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320A5A189C235877202780D4 /* libThree20Network.a */; };
 		320A737074758E53BA54BE95 /* libThree20UINavigator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320A737074758E53BA54BE94 /* libThree20UINavigator.a */; };
@@ -100,6 +100,13 @@
 			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
 			remoteInfo = Three20UINavigatorUnitTests;
 		};
+		22C07C8113A6129D0051BDC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3205FA96B41F8AE94E5369E0 /* extThree20XML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C;
+			remoteInfo = extThree20XMLUnitTests;
+		};
 		3201088596B4756681693702 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3201088596B4756681693700 /* Three20UICommon.xcodeproj */;
@@ -113,6 +120,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
 			remoteInfo = Three20UICommon;
+		};
+		3205FA96B41F8AE94E5369E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3205FA96B41F8AE94E5369E0 /* extThree20XML.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BEF31F390F352DF5000DE5D2;
+			remoteInfo = extThree20XML;
+		};
+		3205FA96B41F8AE94E5369E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3205FA96B41F8AE94E5369E0 /* extThree20XML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2;
+			remoteInfo = extThree20XML;
 		};
 		320A2827FEC940B25BC42C62 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -201,6 +222,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		223316FA13A60A46007AAC2A /* FeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedModel.h; sourceTree = "<group>"; };
+		223316FB13A60A46007AAC2A /* FeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedModel.m; sourceTree = "<group>"; };
 		223BA44E13973BAB00BAE2A9 /* MyRssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223BA45213973BAB00BAE2A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		223BA45413973BAB00BAE2A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -229,22 +252,18 @@
 		223BA4B913976B2F00BAE2A9 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		223BA4BA13976B2F00BAE2A9 /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLEntities.h"; sourceTree = "<group>"; };
 		223BA4BB13976B2F00BAE2A9 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
-		223BA4C113976B3C00BAE2A9 /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedInfo.h; sourceTree = "<group>"; };
-		223BA4C213976B3C00BAE2A9 /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedInfo.m; sourceTree = "<group>"; };
-		223BA4C313976B3C00BAE2A9 /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MWFeedItem.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		223BA4C413976B3C00BAE2A9 /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MWFeedItem.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		223BA4C513976B3C00BAE2A9 /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
-		223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MWFeedParser.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		223BA4C713976B3C00BAE2A9 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
 		22476A28139E2B4E00010A1B /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		22476A29139E2B4E00010A1B /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		228695CB13A2203400C4E0F7 /* MyTableSubtitleItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableSubtitleItemCell.h; sourceTree = "<group>"; };
 		228695CC13A2203400C4E0F7 /* MyTableSubtitleItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableSubtitleItemCell.m; sourceTree = "<group>"; };
+		22C07CCB13A61B980051BDC9 /* FeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItem.h; sourceTree = "<group>"; };
+		22C07CCC13A61B980051BDC9 /* FeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItem.m; sourceTree = "<group>"; };
 		22F73C9013A0A68700CA8B3B /* FeedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDataSource.h; sourceTree = "<group>"; };
 		22F73C9113A0A68700CA8B3B /* FeedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FeedDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		22FE29FE1398C33500304A23 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		22FE29FF1398C33500304A23 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		3201088596B4756681693700 /* Three20UICommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UICommon.xcodeproj; path = Dependencies/three20/src/Three20UICommon/Three20UICommon.xcodeproj; sourceTree = SOURCE_ROOT; };
+		3205FA96B41F8AE94E5369E0 /* extThree20XML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = extThree20XML.xcodeproj; path = Dependencies/three20/src/extThree20XML/extThree20XML.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320A2827FEC940B25BC42C60 /* Three20Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20Core.xcodeproj; path = Dependencies/three20/src/Three20Core/Three20Core.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320A5A189C235877202780D0 /* Three20Network.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20Network.xcodeproj; path = Dependencies/three20/src/Three20Network/Three20Network.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320A737074758E53BA54BE90 /* Three20UINavigator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UINavigator.xcodeproj; path = Dependencies/three20/src/Three20UINavigator/Three20UINavigator.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -260,6 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3205FA96B41F8AE94E5369E5 /* libextThree20XML.a in Frameworks */,
 				3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */,
 				320D7DCCE32703ACAB9A45E5 /* libThree20.a in Frameworks */,
 				320A737074758E53BA54BE95 /* libThree20UINavigator.a in Frameworks */,
@@ -309,6 +329,7 @@
 		223BA45113973BAB00BAE2A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3205FA96B41F8AE94E5369E0 /* extThree20XML.xcodeproj */,
 				3201088596B4756681693700 /* Three20UICommon.xcodeproj */,
 				320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */,
 				320A737074758E53BA54BE90 /* Three20UINavigator.xcodeproj */,
@@ -327,7 +348,6 @@
 		223BA45813973BAB00BAE2A9 /* MyRssReader */ = {
 			isa = PBXGroup;
 			children = (
-				223BA4C013976B3C00BAE2A9 /* MWFeedParser */,
 				223BA4B213976B2F00BAE2A9 /* Categories */,
 				223BA46113973BAB00BAE2A9 /* MyRssReaderAppDelegate.h */,
 				223BA46213973BAC00BAE2A9 /* MyRssReaderAppDelegate.m */,
@@ -340,6 +360,10 @@
 				22FE29FF1398C33500304A23 /* DetailViewController.m */,
 				22F73C9013A0A68700CA8B3B /* FeedDataSource.h */,
 				22F73C9113A0A68700CA8B3B /* FeedDataSource.m */,
+				223316FA13A60A46007AAC2A /* FeedModel.h */,
+				223316FB13A60A46007AAC2A /* FeedModel.m */,
+				22C07CCB13A61B980051BDC9 /* FeedItem.h */,
+				22C07CCC13A61B980051BDC9 /* FeedItem.m */,
 				228695CB13A2203400C4E0F7 /* MyTableSubtitleItemCell.h */,
 				228695CC13A2203400C4E0F7 /* MyTableSubtitleItemCell.m */,
 				223BA45913973BAB00BAE2A9 /* Supporting Files */,
@@ -395,25 +419,20 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		223BA4C013976B3C00BAE2A9 /* MWFeedParser */ = {
-			isa = PBXGroup;
-			children = (
-				223BA4C113976B3C00BAE2A9 /* MWFeedInfo.h */,
-				223BA4C213976B3C00BAE2A9 /* MWFeedInfo.m */,
-				223BA4C313976B3C00BAE2A9 /* MWFeedItem.h */,
-				223BA4C413976B3C00BAE2A9 /* MWFeedItem.m */,
-				223BA4C513976B3C00BAE2A9 /* MWFeedParser.h */,
-				223BA4C613976B3C00BAE2A9 /* MWFeedParser.m */,
-				223BA4C713976B3C00BAE2A9 /* MWFeedParser_Private.h */,
-			);
-			path = MWFeedParser;
-			sourceTree = "<group>";
-		};
 		3201088596B4756681693703 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				3201088596B4756681693704 /* libThree20UICommon.a */,
 				224769EA139E25BF00010A1B /* UICommonUnitTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3205FA96B41F8AE94E5369E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3205FA96B41F8AE94E5369E4 /* libextThree20XML.a */,
+				22C07C8213A6129D0051BDC9 /* extJSONUnitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -486,6 +505,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3205FA96B41F8AE94E5369E1 /* PBXTargetDependency */,
 				3201088596B4756681693701 /* PBXTargetDependency */,
 				320D7DCCE32703ACAB9A45E1 /* PBXTargetDependency */,
 				320A737074758E53BA54BE91 /* PBXTargetDependency */,
@@ -534,6 +554,10 @@
 			productRefGroup = 223BA44F13973BAB00BAE2A9 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 3205FA96B41F8AE94E5369E3 /* Products */;
+					ProjectRef = 3205FA96B41F8AE94E5369E0 /* extThree20XML.xcodeproj */;
+				},
 				{
 					ProductGroup = 320D7DCCE32703ACAB9A45E3 /* Products */;
 					ProjectRef = 320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */;
@@ -621,11 +645,25 @@
 			remoteRef = 224769EC139E25BF00010A1B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		22C07C8213A6129D0051BDC9 /* extJSONUnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = extJSONUnitTests.octest;
+			remoteRef = 22C07C8113A6129D0051BDC9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		3201088596B4756681693704 /* libThree20UICommon.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libThree20UICommon.a;
 			remoteRef = 3201088596B4756681693706 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3205FA96B41F8AE94E5369E4 /* libextThree20XML.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libextThree20XML.a;
+			remoteRef = 3205FA96B41F8AE94E5369E6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		320A2827FEC940B25BC42C64 /* libThree20Core.a */ = {
@@ -722,13 +760,12 @@
 				223BA4BD13976B2F00BAE2A9 /* NSDate+InternetDateTime.m in Sources */,
 				223BA4BE13976B2F00BAE2A9 /* NSString+HTML.m in Sources */,
 				223BA4BF13976B2F00BAE2A9 /* NSString+XMLEntities.m in Sources */,
-				223BA4C813976B3C00BAE2A9 /* MWFeedInfo.m in Sources */,
-				223BA4C913976B3C00BAE2A9 /* MWFeedItem.m in Sources */,
-				223BA4CA13976B3C00BAE2A9 /* MWFeedParser.m in Sources */,
 				22FE2A001398C33500304A23 /* DetailViewController.m in Sources */,
 				22476A2A139E2B4E00010A1B /* TabBarController.m in Sources */,
 				22F73C9213A0A68800CA8B3B /* FeedDataSource.m in Sources */,
 				228695CD13A2203400C4E0F7 /* MyTableSubtitleItemCell.m in Sources */,
+				223316FC13A60A46007AAC2A /* FeedModel.m in Sources */,
+				22C07CCD13A61B980051BDC9 /* FeedItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +789,11 @@
 			isa = PBXTargetDependency;
 			name = Three20UICommon;
 			targetProxy = 3201088596B4756681693702 /* PBXContainerItemProxy */;
+		};
+		3205FA96B41F8AE94E5369E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = extThree20XML;
+			targetProxy = 3205FA96B41F8AE94E5369E2 /* PBXContainerItemProxy */;
 		};
 		320A2827FEC940B25BC42C61 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

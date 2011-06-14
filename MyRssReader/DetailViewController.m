@@ -6,6 +6,7 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
+#import "NSString+HTML.h"
 #import "DetailViewController.h"
 
 
@@ -62,8 +63,7 @@
   [super loadView];
   
   NSString *title = _item.title ? [_item.title stringByConvertingHTMLToPlainText] : @"[No Title]";
-  NSString *date = [_formatter stringFromDate:_item.date];
-  NSString *summary = _item.summary ? [_item.summary stringByConvertingHTMLToPlainText] : @"[No Summary]";
+  NSString *desc = _item.description ? [_item.description stringByConvertingHTMLToPlainText] : @"[No Summary]";
 
   UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
   titleButton.frame = CGRectMake(10, 10, 300, 30);
@@ -74,7 +74,7 @@
   [self.view addSubview:titleButton];
   
   UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 300, 20)];
-  dateLabel.text = [_formatter stringFromDate:date];;
+  dateLabel.text = [_item.date formatRelativeTime];;
   dateLabel.textColor = [UIColor grayColor];
   [self.view addSubview:dateLabel];
   [dateLabel release];
@@ -86,9 +86,10 @@
   [self.view addSubview:_item.summary];
   [summary release];
    */
+
   UITextView *summaryView = [[UITextView alloc] initWithFrame:CGRectMake(10, 70, 300, 300)];
   //summaryView.adjustsFontSizeToFitWidth = YES;
-  summaryView.text = summary;
+  summaryView.text = desc;
   //summaryView.editable = NO;
   summaryView.dataDetectorTypes = UIDataDetectorTypeAll;
   [self.view addSubview:summaryView];

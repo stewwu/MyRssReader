@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MWFeedParser.h"
+#import "FeedItem.h"
 
 
 @interface DetailViewController : TTViewController {
-  MWFeedItem *_item;
+  FeedItem *_item;
   
   NSDateFormatter *_formatter;
 }
 
-@property (nonatomic, retain) MWFeedItem *item;
+@property (nonatomic, retain) FeedItem *item;
 
 - (id)initWithFeedDigest:(NSString *)feedDigest item:(NSInteger)theItem;
 
