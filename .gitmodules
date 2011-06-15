@@ -1,3 +1,9 @@
 [submodule "Dependencies/three20"]
 	path = Dependencies/three20
 	url = git://github.com/facebook/three20.git
+[submodule "Dependencies/DDActionHeaderView"]
+	path = Dependencies/DDActionHeaderView
+	url = git://github.com/digdog/DDActionHeaderView.git
+[submodule "Dependencies/ShareKit"]
+	path = Dependencies/ShareKit
+	url = https://github.com/ideashower/ShareKit.git

@@ -14,6 +14,9 @@
   FeedItem *_item;
   
   NSDateFormatter *_formatter;
+  UIButton *browseButton;
+  UIButton *facebookButton;
+  UIButton *twitterButton;
 }
 
 @property (nonatomic, retain) FeedItem *item;
