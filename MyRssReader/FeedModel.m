@@ -77,16 +77,38 @@
     FeedItem *item = [[FeedItem alloc] init];
     NSDictionary *title = [entry objectForKey:@"title"];
     item.title = [title objectForKey:@"___Entity_Value___"];
+    
     NSDictionary *pubDate  = [entry objectForKey:@"pubDate"];
     if (_dateFormatter == nil) {
       item.date = [NSDate dateFromInternetDateTimeString:[pubDate objectForKey:@"___Entity_Value___"] formatHint:DateFormatHintRFC822];
     } else {
       item.date = [_dateFormatter dateFromString:[pubDate objectForKey:@"___Entity_Value___"]];
     }
+    
     NSDictionary *desc = [entry objectForKey:@"description"];
     item.description = [desc objectForKey:@"___Entity_Value___"];
+    
+    NSDictionary *category = [entry objectForKey:@"category"];
+    if (category == nil)
+      category = [entry objectForKey:@"subcategory"];
+    if (category != nil) {
+      if ([category isKindOfClass:[NSArray class]]) {
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:[category count]];
+        [(NSArray *)category enumerateObjectsUsingBlock:
+          ^(id obj, NSUInteger idx, BOOL *stop) {
+            [array addObject:[[obj objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+          }
+        ];
+        item.categories = [NSArray arrayWithArray:array];
+      } else if ([category isKindOfClass:[NSDictionary class]]) {
+        item.categories = [NSArray arrayWithObject:[[category objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+      }
+    }
+      
+    
     NSDictionary *link  = [entry objectForKey:@"link"];
     item.link = [[link objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
     NSDictionary *image  = [entry objectForKey:@"image"];
     item.image = [[image objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     

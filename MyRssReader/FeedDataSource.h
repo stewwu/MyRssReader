@@ -12,8 +12,9 @@
 
 @interface FeedDataSource : TTListDataSource {
   FeedModel *_feedModel;
+  NSString *_category;
 }
 
-- (id)initWithUrl:(NSString *)url dateFormatter:(NSDateFormatter *)dateFormatter;
+- (id)initWithUrl:(NSString *)url category:(NSString *)category dateFormatter:(NSDateFormatter *)dateFormatter;
 
 @end

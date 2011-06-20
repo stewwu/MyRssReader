@@ -13,6 +13,7 @@
   NSString *_title;
   NSDate *_date;
   NSString *_description;
+  NSArray *_categories;
   NSString *_link;
   NSString *_image;
 }
@@ -20,6 +21,7 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSDate *date;
 @property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSArray *categories;
 @property (nonatomic, copy) NSString *link;
 @property (nonatomic, copy) NSString *image;
 

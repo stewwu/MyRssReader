@@ -15,17 +15,19 @@
 
 @implementation FeedDataSource
 
-- (id)initWithUrl:(NSString *)url dateFormatter:(NSDateFormatter *)dateFormatter
+- (id)initWithUrl:(NSString *)url category:(NSString *)category dateFormatter:(NSDateFormatter *)dateFormatter
 {
   self = [super init];
   if (self) {
     _feedModel = [[FeedModel alloc] initWithUrl:url dateFormatter:dateFormatter];
+    _category = [category retain];
   }
   return self;
 }
 
 - (void)delloc
 {
+  TT_RELEASE_SAFELY(_category);
   TT_RELEASE_SAFELY(_feedModel);
   [super dealloc];
 }
@@ -43,6 +45,10 @@
   NSMutableArray *items = [[NSMutableArray alloc] init];
   NSInteger n = 0;
   for (FeedItem *item in _feedModel.items) {
+    if (_category != nil) {
+      if (![item.categories containsObject:_category])
+        continue;
+    }
     NSString *title = item.title ? [item.title stringByConvertingHTMLToPlainText] : @"[No Title]";
     NSString *date = [item.date formatRelativeTime];
     /*

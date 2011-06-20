@@ -33,15 +33,15 @@
 - (void)createModel
 {
   if ([self.title isEqualToString:@"Blog"]) {
-    self.dataSource = [[[FeedDataSource alloc] initWithUrl:@"http://feeds.feedburner.com/inside-blog-taiwan" dateFormatter:nil] autorelease];
+    self.dataSource = [[[FeedDataSource alloc] initWithUrl:@"http://feeds.feedburner.com/inside-blog-taiwan" category:nil dateFormatter:nil] autorelease];
   } else if ([self.title isEqualToString:@"Forum"]) {
-    self.dataSource = [[[FeedDataSource alloc] initWithUrl:@"http://forum.inside.com.tw/rss.php?auth=0" dateFormatter:nil] autorelease];
+    self.dataSource = [[[FeedDataSource alloc] initWithUrl:@"http://forum.inside.com.tw/rss.php?auth=0" category:nil dateFormatter:nil] autorelease];
   } else {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterFullStyle];
     [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
 
-    self.dataSource = [[[FeedDataSource alloc] initWithUrl:@"http://news.ebc.net.tw/rss/" dateFormatter:dateFormatter] autorelease];
+    self.dataSource = [[[FeedDataSource alloc] initWithUrl:@"http://news.ebc.net.tw/rss/" category:nil dateFormatter:dateFormatter] autorelease];
     
     TT_RELEASE_SAFELY(dateFormatter);
   }
