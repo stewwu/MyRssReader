@@ -65,54 +65,121 @@
   
   TTDASSERT([response.rootObject isKindOfClass:[NSDictionary class]]);
   NSDictionary *rootObject = response.rootObject;
+  NSString *rootTag = [rootObject objectForKey:@"___Entity_Name___"];
   
-  TTDASSERT([[rootObject objectForKey:@"channel"] isKindOfClass:[NSDictionary class]]);
-  NSDictionary *channel = [rootObject objectForKey:@"channel"];
-  
-  TTDASSERT([[channel objectForKey:@"item"] isKindOfClass:[NSArray class]]);
-  NSArray *entries = [channel objectForKey:@"item"];
-  
-  NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:[entries count]];
-  for (NSDictionary* entry in entries) {
-    FeedItem *item = [[FeedItem alloc] init];
-    NSDictionary *title = [entry objectForKey:@"title"];
-    item.title = [title objectForKey:@"___Entity_Value___"];
+  NSMutableArray *items = [[NSMutableArray alloc] init];
+  if ([rootTag isEqualToString:@"feed"]) { // Atom
+    TTDASSERT([[rootObject objectForKey:@"entry"] isKindOfClass:[NSArray class]]);
+    NSArray *entries = [rootObject objectForKey:@"entry"];
     
-    NSDictionary *pubDate  = [entry objectForKey:@"pubDate"];
-    if (_dateFormatter == nil) {
-      item.date = [NSDate dateFromInternetDateTimeString:[pubDate objectForKey:@"___Entity_Value___"] formatHint:DateFormatHintRFC822];
-    } else {
-      item.date = [_dateFormatter dateFromString:[pubDate objectForKey:@"___Entity_Value___"]];
+    NSCharacterSet *space = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSDictionary *element = nil;
+    for (NSDictionary *entry in entries) {
+      FeedItem *item = [[FeedItem alloc] init];
+      
+      // title
+      element = [entry objectForKey:@"title"];
+      item.title = [element objectForKey:@"___Entity_Value___"];
+      
+      // date
+      element  = [entry objectForKey:@"updated"];
+      if (_dateFormatter == nil) {
+        item.date = [NSDate dateFromRFC3339String:[element objectForKey:@"___Entity_Value___"]];
+      } else {
+        item.date = [_dateFormatter dateFromString:[element objectForKey:@"___Entity_Value___"]];
+      }
+      
+      // summary
+      element = [entry objectForKey:@"summary"];
+      item.description = [element objectForKey:@"___Entity_Value___"];
+      
+      // categories
+      element = [entry objectForKey:@"category"];
+      if (!element)
+        element = [entry objectForKey:@"subcategory"];
+      if ([element isKindOfClass:[NSArray class]]) {
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:[element count]];
+        [(NSArray *)element enumerateObjectsUsingBlock:
+         ^(id obj, NSUInteger idx, BOOL *stop) {
+           [array addObject:[[obj objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:space]];
+         }
+         ];
+        item.categories = [NSArray arrayWithArray:array];
+      } else if ([element isKindOfClass:[NSDictionary class]]) {
+        item.categories = [NSArray arrayWithObject:[element objectForKey:@"term"]];
+      }
+      
+      // link
+      element  = [entry objectForKey:@"link"];
+      if ([element isKindOfClass:[NSArray class]]) {
+        for (NSDictionary *link in element) {
+          if (!item.link || [[link objectForKey:@"rel"] isEqualToString:@"alternate"])
+            item.link = [link objectForKey:@"href"];
+        }
+      } else if ([element isKindOfClass:[NSDictionary class]]) {
+          item.link = [element objectForKey:@"href"];
+      }
+      
+      // image
+      element  = [entry objectForKey:@"image"];
+      item.image = [[element objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:space];
+      
+      [items addObject:item];
     }
+  } else if ([rootTag isEqualToString:@"rss"]) { // RSS
+    TTDASSERT([[rootObject objectForKey:@"channel"] isKindOfClass:[NSDictionary class]]);
+    NSDictionary *channel = [rootObject objectForKey:@"channel"];
     
-    NSDictionary *desc = [entry objectForKey:@"description"];
-    item.description = [desc objectForKey:@"___Entity_Value___"];
+    TTDASSERT([[channel objectForKey:@"item"] isKindOfClass:[NSArray class]]);
+    NSArray *entries = [channel objectForKey:@"item"];
     
-    NSDictionary *category = [entry objectForKey:@"category"];
-    if (category == nil)
-      category = [entry objectForKey:@"subcategory"];
-    if (category != nil) {
-      if ([category isKindOfClass:[NSArray class]]) {
-        NSMutableArray *array = [NSMutableArray arrayWithCapacity:[category count]];
-        [(NSArray *)category enumerateObjectsUsingBlock:
-          ^(id obj, NSUInteger idx, BOOL *stop) {
-            [array addObject:[[obj objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-          }
+    NSCharacterSet *space = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSDictionary *element = nil;
+    for (NSDictionary *entry in entries) {
+      FeedItem *item = [[FeedItem alloc] init];
+      
+      // title
+      element = [entry objectForKey:@"title"];
+      item.title = [element objectForKey:@"___Entity_Value___"];
+      
+      // date
+      element  = [entry objectForKey:@"pubDate"];
+      if (_dateFormatter == nil) {
+        item.date = [NSDate dateFromRFC822String:[element objectForKey:@"___Entity_Value___"]];
+      } else {
+        item.date = [_dateFormatter dateFromString:[element objectForKey:@"___Entity_Value___"]];
+      }
+      
+      // summary
+      element = [entry objectForKey:@"description"];
+      item.description = [element objectForKey:@"___Entity_Value___"];
+      
+      // categories
+      element = [entry objectForKey:@"category"];
+      if (!element)
+        element = [entry objectForKey:@"subcategory"];
+      if ([element isKindOfClass:[NSArray class]]) {
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:[element count]];
+        [(NSArray *)element enumerateObjectsUsingBlock:
+         ^(id obj, NSUInteger idx, BOOL *stop) {
+           [array addObject:[[obj objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:space]];
+         }
         ];
         item.categories = [NSArray arrayWithArray:array];
-      } else if ([category isKindOfClass:[NSDictionary class]]) {
-        item.categories = [NSArray arrayWithObject:[[category objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+      } else if ([element isKindOfClass:[NSDictionary class]]) {
+        item.categories = [NSArray arrayWithObject:[[element objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:space]];
       }
-    }
       
-    
-    NSDictionary *link  = [entry objectForKey:@"link"];
-    item.link = [[link objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    NSDictionary *image  = [entry objectForKey:@"image"];
-    item.image = [[image objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    [items addObject:item];
+      // link
+      element  = [entry objectForKey:@"link"];
+      item.link = [[element objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:space];
+      
+      // image
+      element  = [entry objectForKey:@"image"];
+      item.image = [[element objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:space];
+      
+      [items addObject:item];
+    }
   }
   _items = items;
   
