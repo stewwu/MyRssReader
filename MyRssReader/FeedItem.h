@@ -16,6 +16,7 @@
   NSArray *_categories;
   NSString *_link;
   NSString *_image;
+  NSString *_guid;
 }
 
 @property (nonatomic, copy) NSString *title;
@@ -24,5 +25,6 @@
 @property (nonatomic, copy) NSArray *categories;
 @property (nonatomic, copy) NSString *link;
 @property (nonatomic, copy) NSString *image;
+@property (nonatomic, copy) NSString *guid;
 
 @end

@@ -124,6 +124,10 @@
       element  = [entry objectForKey:@"image"];
       item.image = [[element objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:space];
       
+      // guid
+      element  = [entry objectForKey:@"id"];
+      item.guid = [[element objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:space];
+      
       [items addObject:item];
     }
   } else if ([rootTag isEqualToString:@"rss"]) { // RSS
@@ -177,6 +181,10 @@
       // image
       element  = [entry objectForKey:@"image"];
       item.image = [[element objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:space];
+      
+      // guid
+      element  = [entry objectForKey:@"guid"];
+      item.guid = [[element objectForKey:@"___Entity_Value___"] stringByTrimmingCharactersInSet:space];
       
       [items addObject:item];
     }

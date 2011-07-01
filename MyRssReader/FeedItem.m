@@ -17,6 +17,7 @@
 @synthesize categories=_categories;
 @synthesize link=_link;
 @synthesize image=_image;
+@synthesize guid=_guid;
 
 - (void)dealloc
 {
@@ -26,6 +27,7 @@
   TT_RELEASE_SAFELY(_categories);
   TT_RELEASE_SAFELY(_link);
   TT_RELEASE_SAFELY(_image);
+  TT_RELEASE_SAFELY(_guid);
   
   [super dealloc];
 }
