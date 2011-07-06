@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FeedItem.h"
+
 
 @interface FeedModel : TTURLRequestModel {
   NSString *_url;

@@ -9,7 +9,6 @@
 #import "NSDate+InternetDateTime.h"
 
 #import "FeedModel.h"
-#import "FeedItem.h"
 
 
 @implementation FeedModel
