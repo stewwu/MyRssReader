@@ -62,7 +62,6 @@
     NSString *requestURL = [_url stringByAddingQueryDictionary:_params];
     TTURLRequest *request = [TTURLRequest requestWithURL:requestURL delegate:self];
     request.cachePolicy = cachePolicy;
-    request.cacheExpirationAge = TT_CACHE_EXPIRATION_AGE_NEVER;
     
     TTURLXMLResponse *response = [[TTURLXMLResponse alloc] init];
     response.isRssFeed = YES;
