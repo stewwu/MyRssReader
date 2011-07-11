@@ -14,6 +14,7 @@
 @implementation FeedModel
 
 @synthesize url=_url;
+@synthesize params=_params;
 @synthesize dateFormatter=_dateFormatter;
 @synthesize items=_items;
 @synthesize finished=_finished;
@@ -23,8 +24,20 @@
   self = [super init];
   if (self) {
     self.url = url;
+    self.params = nil;
     self.dateFormatter = dateFormatter;
     _items = [[NSMutableArray array] retain];
+  }
+  return self;
+}
+
+- (id)initWithUrl:(NSString *)url params:(NSDictionary *)params dateFormatter:(NSDateFormatter *)dateFormatter
+{
+  if ((self = [super init])) {
+    self.url = url;
+    self.params = params;
+    self.dateFormatter = dateFormatter;
+    _items = [[NSMutableArray alloc] init];
   }
   return self;
 }
@@ -32,6 +45,7 @@
 - (void)dealloc
 {
   TT_RELEASE_SAFELY(_dateFormatter);
+  TT_RELEASE_SAFELY(_params);
   TT_RELEASE_SAFELY(_url);
   TT_RELEASE_SAFELY(_items);
   [super dealloc];
@@ -45,7 +59,8 @@
       [_items removeAllObjects];
     }
     
-    TTURLRequest *request = [TTURLRequest requestWithURL:_url delegate:self];
+    NSString *requestURL = [_url stringByAddingQueryDictionary:_params];
+    TTURLRequest *request = [TTURLRequest requestWithURL:requestURL delegate:self];
     request.cachePolicy = cachePolicy;
     request.cacheExpirationAge = TT_CACHE_EXPIRATION_AGE_NEVER;
     
